@@ -21,4 +21,9 @@ public class UserController {
         userService.insert();
     }
 
+    @RequestMapping("/user1")
+    public void user1() {
+        userService.insert();
+    }
+
 }

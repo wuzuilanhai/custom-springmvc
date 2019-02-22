@@ -162,10 +162,11 @@ public class DispatcherServlet extends HttpServlet {
                     baseUrl.append(requestMapping.value());
                 }
                 for (Method method : methods) {
+                    StringBuilder base = new StringBuilder(baseUrl.toString());
                     if (method.isAnnotationPresent(RequestMapping.class)) {
                         RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
-                        baseUrl.append(requestMapping.value());
-                        urlMethodMap.put(baseUrl.toString(), method);
+                        base.append(requestMapping.value());
+                        urlMethodMap.put(base.toString(), method);
                         methodClassMap.put(method, packageName);
                     }
                 }
